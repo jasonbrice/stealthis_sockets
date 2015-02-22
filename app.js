@@ -17,7 +17,7 @@ app.io.route('ready', function(req){
 
 // Set up a connection to our database with a new Knex instance
 var pg = require('knex')({
-  client: 'pg',  debug: true,  connection: "postgres://mfifoqjd:XXDvFRnMPlhOh5Kwz9R_s7W3PVD9M7hy@babar.elephantsql.com:5432/mfifoqjd"  ,
+  client: 'pg',  debug: true,  connection: "postgres://***@babar.elephantsql.com:5432/mfifoqjd"  ,
   pool: {    min: 2,    max: 10  }
 });
 
