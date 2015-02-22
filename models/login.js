@@ -4,8 +4,13 @@
 
 var Bookshelf = require('bookshelf').DB;
 
+var Person = require("./person").model;
+
 exports.model = Bookshelf.Model.extend({
    tableName: 'stealthis.login',
-   idAttribute: 'id'
+   idAttribute: 'id', 
+   person: function(){
+     return this.hasOne(Person);
+   }
 });
 

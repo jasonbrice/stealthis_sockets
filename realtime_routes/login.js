@@ -34,9 +34,7 @@ module.exports = {
     create: function(req) {
 
         if(req.data.password){
-
             req.data.password = sha512(req.data.password).toString('hex');
-
         }
 
         Login.forge(req.data).save().then(function(login){
