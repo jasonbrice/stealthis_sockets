@@ -1,0 +1,16 @@
+{
+  "name": "MahApp",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "bookshelf": "^0.7.9",
+    "express": "^4.11.2",
+    "express.io": "^1.1.13",
+    "knex": "^0.7.3",
+    "pg": "^4.2.0",
+    "sha512": "0.0.1"
+  }
+}

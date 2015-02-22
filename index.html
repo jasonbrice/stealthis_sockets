@@ -1,0 +1,21 @@
+<html>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  io = io.connect()
+
+  // Emit ready event.
+  io.emit('ready')
+
+  // Listen for the status event.
+  io.on('status', function(data) {
+    document.body.innerHTML = data;
+  })
+  
+  io.on('response', function(data)
+  {
+    console.log(data);
+  })
+  
+</script>
+<body></body>
+</html>

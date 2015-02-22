@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.7.2" last-position="0,0" last-zoom="1.1">
+<database name="Redbird.Landing">
+</database>
+
+<schema name="public" protected="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="Landing" fill-color="#e1e1e1">
+</schema>
+
+<sequence name="person_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<table name="Person">
+	<schema name="&quot;Landing&quot;"/>
+	<position x="43.994" y="353.482"/>
+	<column name="Id" not-null="true" sequence="&quot;Landing&quot;.person_pk_seq">
+		<type name="bigint"/>
+	</column>
+	<column name="FirstName">
+		<type name="text"/>
+	</column>
+	<column name="LastName">
+		<type name="text"/>
+	</column>
+	<constraint name="pk_person_id" type="pk-constr" factor="100" table="&quot;Landing&quot;.&quot;Person&quot;">
+		<columns names="Id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="address_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="entity_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="location_pk_sequence"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="course_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="phase_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="stage_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="training_record_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="training_record_detail_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="asset_class_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="asset_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="login_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<table name="Login">
+	<schema name="&quot;Landing&quot;"/>
+	<position x="449.921" y="121.073"/>
+	<column name="Id" not-null="true" sequence="&quot;Landing&quot;.login_pk_seq">
+		<type name="bigint"/>
+	</column>
+	<column name="Email">
+		<type name="text"/>
+	</column>
+	<column name="Password" not-null="true">
+		<type name="text"/>
+	</column>
+	<constraint name="unique_email" type="uq-constr" factor="100" table="&quot;Landing&quot;.&quot;Login&quot;">
+		<columns names="Email" ref-type="src-columns"/>
+	</constraint>
+	<constraint name="pk_login_id" type="pk-constr" factor="100" table="&quot;Landing&quot;.&quot;Login&quot;">
+		<columns names="Id" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="PersonId" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="Id" index="3"/>
+		<object name="Person_fk" index="2"/>
+	</customidxs>
+</table>
+
+<relationship name="Person_has_one_Login" type="rel11"
+	 src-col-pattern="PersonId"
+	 pk-pattern="{dt}_pk" uq-pattern="Id"
+	 src-fk-pattern="{st}_fk"
+	 src-table="&quot;Landing&quot;.&quot;Login&quot;"
+	 dst-table="&quot;Landing&quot;.&quot;Person&quot;"
+	 src-required="false" dst-required="true"
+	upd-action="NO ACTION"
+	del-action="CASCADE">
+	<label ref-type="name-label">
+		<position x="84.4205" y="-42.1776"/>
+	</label>
+</relationship>
+
+<sequence name="entity_type_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<table name="Address">
+	<schema name="&quot;Landing&quot;"/>
+	<position x="562.033" y="329.163"/>
+	<column name="Id" not-null="true" sequence="&quot;Landing&quot;.address_pk_seq">
+		<type name="bigint"/>
+	</column>
+	<column name="Street">
+		<type name="text"/>
+	</column>
+	<column name="City">
+		<type name="text"/>
+	</column>
+	<column name="State">
+		<type name="text"/>
+	</column>
+	<column name="PostalCode">
+		<type name="text"/>
+	</column>
+	<column name="CountryCode">
+		<type name="text"/>
+	</column>
+	<column name="Latitude">
+		<type name="numeric"/>
+	</column>
+	<column name="Longitude">
+		<type name="numeric"/>
+	</column>
+	<constraint name="pk_address_id" type="pk-constr" factor="100" table="&quot;Landing&quot;.&quot;Address&quot;">
+		<columns names="Id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="Person_has_one_Address" type="rel11"
+	 src-col-pattern="AddressId"
+	 pk-pattern="{dt}_pk" uq-pattern="Id"
+	 src-fk-pattern="{st}_fk"
+	 src-table="&quot;Landing&quot;.&quot;Address&quot;"
+	 dst-table="&quot;Landing&quot;.&quot;Person&quot;"
+	 src-required="false" dst-required="false"
+	del-action="CASCADE">
+	<label ref-type="name-label">
+		<position x="2.9554" y="-42.0032"/>
+	</label>
+</relationship>
+
+<sequence name="person_entity_relationship_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="person_entity_type_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="certificate_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="certificate_type_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="person_asset_relationship_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="person_asset_relationship_type_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="asset_location_relationship_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="asset_location_relationship_type_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="asset_usage_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="location_contact_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="location_contact_type_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="person_asset_usage_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="enrollment_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="stage_objective_detail_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="maneuver_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="maneuver_category_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="stage_objective_detail_section_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="rating_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="rating_type_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="technical_subject_area_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="ground_study_template_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+<sequence name="ground_study_section_title_pk_seq"
+	 start="1" increment="1"
+	 min-value="0" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="&quot;Landing&quot;"/>
+</sequence>
+
+</dbmodel>
